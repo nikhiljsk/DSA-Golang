@@ -1,4 +1,6 @@
 /*
+Rotate Array
+
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 
 
@@ -33,8 +35,8 @@ Try to come up with as many solutions as you can. There are at least three diffe
 Could you do it in-place with O(1) extra space?
 */
 
-func rotate(nums []int, k int)  {
-    var count1, count2 int
+func rotate(nums []int, k int) {
+	var count1, count2 int
 	temp1 := make([]int, len(nums))
 	temp2 := make([]int, len(nums))
 	last := (k % len(nums))
@@ -61,3 +63,5 @@ func rotate(nums []int, k int)  {
 		count++
 	}
 }
+
+// Able to crack the approach and implemented

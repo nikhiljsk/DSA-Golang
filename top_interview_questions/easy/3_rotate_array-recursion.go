@@ -1,4 +1,6 @@
 /*
+Rotate Array
+
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 
 
@@ -33,17 +35,19 @@ Try to come up with as many solutions as you can. There are at least three diffe
 Could you do it in-place with O(1) extra space?
 */
 
-func reverse(nums []int, start int, end int){
-    for start < end {
-        nums[start], nums[end] = nums[end], nums[start]
-        start++
-        end--
-    }
+func reverse(nums []int, start int, end int) {
+	for start < end {
+		nums[start], nums[end] = nums[end], nums[start]
+		start++
+		end--
+	}
 }
 
-func rotate(nums []int, k int)  {
-    k = k % len(nums)
-    reverse(nums, 0, len(nums)-1)
-    reverse(nums, 0, k-1)
-    reverse(nums, k, len(nums)-1)
+func rotate(nums []int, k int) {
+	k = k % len(nums)
+	reverse(nums, 0, len(nums)-1)
+	reverse(nums, 0, k-1)
+	reverse(nums, k, len(nums)-1)
 }
+
+// Seen the solution for this unique approach

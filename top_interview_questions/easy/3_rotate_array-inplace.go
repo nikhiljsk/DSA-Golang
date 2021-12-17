@@ -1,4 +1,6 @@
 /*
+Rotate Array
+
 Given an array, rotate the array to the right by k steps, where k is non-negative.
 
 
@@ -33,27 +35,28 @@ Try to come up with as many solutions as you can. There are at least three diffe
 Could you do it in-place with O(1) extra space?
 */
 
+func rotate(nums []int, k int) {
+	n := len(nums)
+	k = k % n
+	var i, count int
 
-func rotate(nums []int, k int)  {
-    n := len(nums)
-    k = k % n
-    var i, count int
-
-    for count < n{
-        pos := (i+k) % n
-        curr := nums[pos]
-        nums[pos] = nums[i]
-        count++
-        j := pos
-        for count < n && j != i{
-            pos = (j+k) % n
-            curr, nums[pos] = nums[pos], curr
-            count++
-            j = pos
-        }
-        i++
-    }
+	for count < n {
+		pos := (i + k) % n
+		curr := nums[pos]
+		nums[pos] = nums[i]
+		count++
+		j := pos
+		for count < n && j != i {
+			pos = (j + k) % n
+			curr, nums[pos] = nums[pos], curr
+			count++
+			j = pos
+		}
+		i++
+	}
 }
 
-// The double loop is essential here. For odd we might not need. But just take a case where both 
+// The double loop is essential here. For odd we might not need. But just take a case where both
 // n and k are 2. So double loop handles all cases
+
+// Able to crack the approach and implemented till one loop. The other loop had to see solution
