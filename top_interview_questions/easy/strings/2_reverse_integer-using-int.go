@@ -27,32 +27,22 @@ Constraints:
 -231 <= x <= 231 - 1
 */
 
-import "strconv"
-
 func reverse(x int) int {
-	neg := false
-	if x < 0 {
-		x *= -1
-		neg = true
+	res := 0
+	max := 2147483647
+	min := -2147483648
+	for x != 0 {
+		r := x % 10
+		if (res > max/10) || (res == max/10 && r > 7) {
+			return 0
+		}
+		if (res < min/10) || (res == min/10 && r < -8) {
+			return 0
+		}
+		x /= 10
+		res = (res * 10) + r
 	}
-
-	s := []byte(strconv.Itoa(x))
-	till := len(s) / 2
-	for i := 0; i < till; i++ {
-		s[i], s[len(s)-1-i] = s[len(s)-1-i], s[i]
-	}
-	si := strings.Trim(string(s), "0")
-	fmt.Println(si)
-	v, _ := strconv.ParseInt(si, 10, 64)
-
-	if int(v) > 2147483647 || int(v) < -2147483648 {
-		return 0
-	}
-
-	if neg {
-		return -1 * int(v)
-	}
-	return int(v)
+	return res
 }
 
-// Able to crack the approach and implement
+// Able to crack the approach and implement half way through. But the edge cases got me, had to see solution
