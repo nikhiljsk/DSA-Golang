@@ -38,6 +38,15 @@ A few approaches I’ve found useful so far
 
     remove nth node
 
+- To find the nearest
+
+    2 ^(floor(Log(n))
+
+    Given number 45, find the nearest 2^x.
+
+    Sol → 2 ^ (floor(Log(45)) = 2 ^ floor(5.49)) = 2 ^ 5 = 32.
+
+    i.e x = 5
 
 
 💡 TODO !!
