@@ -65,13 +65,41 @@ func romanToInt(s string) int {
 			result += roman[symbol] - roman[carry]
 			fmt.Println("Two", result)
 			carry = 0
+		} else if carry != 0 {
+			result += roman[carry]
+			fmt.Println("Three", result)
+			carry = symbol
 		} else {
 			result += roman[symbol] + roman[carry]
-			fmt.Println("Three", result)
+			fmt.Println("Four", result)
 			carry = 0
 		}
 	}
 	result += roman[carry]
+	return result
+}
+
+// Approach 2
+func romanToInt(s string) int {
+	roman := map[byte]int{
+		'I': 1,
+		'V': 5,
+		'X': 10,
+		'L': 50,
+		'C': 100,
+		'D': 500,
+		'M': 1000,
+	}
+	var prev, temp, result int
+	for i := len(s) - 1; i >= 0; i-- {
+		temp = roman[s[i]]
+		if temp < prev {
+			result -= temp
+		} else {
+			result += temp
+		}
+		prev = temp
+	}
 	return result
 }
 
