@@ -1,6 +1,6 @@
 # Leetcode Solutions
 
-Various solution approaches for problems in multiple roadmaps, daily challenges. All solutions are written in GO (golang). Includes the solutions for follow-up questions as well.
+Various solution approaches for problems in multiple roadmaps and daily challenges. All solutions are written in GO (golang). Includes the solutions for follow-up questions as well.
 
 Working on the following challenges:
 1. [Top Interview Questions](https://leetcode.com/explore/interview/card/top-interview-questions-easy/)
