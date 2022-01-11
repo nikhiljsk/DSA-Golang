@@ -51,6 +51,26 @@ func isAnagram(s string, t string) bool {
 	return false
 }
 
-// Using array instead of hashmap here could be faster maybe.
+// Approach 2 - Using Array - Way faster!
+func isAnagram(s string, t string) bool {
+	seen := make([]int, 26)
+	for _, v := range []byte(s) {
+		seen[v-'a'] += 1
+	}
+	fmt.Println(seen)
+
+	for _, v := range []byte(t) {
+		seen[v-'a'] -= 1
+		if seen[v-'a'] == -1 {
+			return false
+		}
+	}
+	for _, v := range seen {
+		if v != 0 {
+			return false
+		}
+	}
+	return true
+}
 
 // Able to crack the approach and implement
