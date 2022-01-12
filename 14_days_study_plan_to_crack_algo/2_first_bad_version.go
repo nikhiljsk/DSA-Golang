@@ -32,18 +32,16 @@ func firstBadVersion(n int) int {
 	l, r := 1, n
 	var mid int
 
-	for l < r { // This is imp not to be <=, otherwise infinite loop
+	for l <= r {
 		mid = l + (r-l)/2
 		if isBadVersion(mid) {
-			r = mid // You can't have mid-1 here, cause for testcase (3,2), you have to wait till l is incremented
+			r = mid - 1
 		} else {
-			l = mid + 1 // You cant have just mid here, as l should keep moving to the position, otherwise infinie loop for (5,4)
+			l = mid + 1
 		}
 	}
-	return l
+	return l // OR r+1
 }
-
-// OR you could use l<=r, later ... r = mid-1 ... l = mid+1. You could also return r+1 in this case
 
 // What overflow condition?
 // https://ai.googleblog.com/2006/06/extra-extra-read-all-about-it-nearly.html
