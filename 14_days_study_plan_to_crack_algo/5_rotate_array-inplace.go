@@ -38,11 +38,12 @@ Could you do it in-place with O(1) extra space?
 func rotate(nums []int, k int) {
 	n := len(nums)
 	k = k % n
-	var i, count, curr int
+	var i, count int
 
 	for count < n {
 		pos := (i + k) % n
-		curr, nums[pos] = nums[pos], nums[i]
+		curr := nums[pos]
+		nums[pos] = nums[i]
 		count++
 		j := pos
 		for count < n && j != i {
