@@ -110,6 +110,33 @@ func checkInclusion(s1 string, s2 string) bool {
     return false
 }
 
+// Approach 4 - Better implementation of above method
+func checkInclusion(s1 string, s2 string) bool {
+    if len(s1) > len(s2) {
+        return false
+    }
+    n, m := len(s1), len(s2)
+    m1, m2 := make([]int, 26), make([]int, 26)
+    for i:=0; i<n; i++ {
+        m1[s1[i]-'a'] += 1      // Calculate frequency of chars in s1
+        m2[s2[i]-'a'] += 1      // Calculate frequency of chars in s2 till n chars
+    }
+    
+    i:=n
+    for { // Window method
+        if reflect.DeepEqual(m1, m2) {
+            return true
+        }
+        if i >= m {
+			return false
+		}
+        m2[s2[i-n]-'a']--      // Delete the freq of first char in the window
+        m2[s2[i]-'a']++        // New char freq
+        i++
+    }
+    return false
+}
+
 /*
 Testcases
 "adc"
