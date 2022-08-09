@@ -55,11 +55,5 @@ func intersection(nums1, nums2 []int) []int {
 func intersect(nums1 []int, nums2 []int) []int {
 	sort.Ints(nums1)
 	sort.Ints(nums2)
-
-	if len(nums1) < len(nums2) {
-		return intersection(nums1, nums2)
-	}
 	return intersection(nums2, nums1)
 }
-
-// Able to crack the approach and implemented
