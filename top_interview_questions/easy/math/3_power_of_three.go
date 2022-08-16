@@ -47,9 +47,10 @@ func isPowerOfThree(n int) bool {
 	return n > 0 && 1162261467%n == 0
 }
 
-// !! Approach 3 Not working !!
+// Approach 3 - Not working with NextAfter value
 func isPowerOfThree(n int) bool {
-	epsilon := math.Nextafter(1, 3) - 1
+	// epsilon := math.Nextafter(1, 3) - 1
+	epsilon := 0.0000000001 // This should eliminate the uncertainity
 	return math.Mod(((math.Log10(float64(n))/math.Log10(3))+epsilon), 1.0) <= 2*epsilon
 }
 
