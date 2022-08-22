@@ -53,7 +53,7 @@ func (this *Solution) Shuffle() []int {
 	newArr := make([]int, len(this.arr))
 	copy(newArr, this.arr)
 
-	rand.Shuffle(len(newArr), func(i, j) {
+	rand.Shuffle(len(newArr), func(i, j int) {
 		newArr[i], newArr[j] = newArr[j], newArr[i]
 	})
 	return newArr
