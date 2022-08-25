@@ -349,5 +349,127 @@ func main() {
 	}
 	fmt.Println("\n------------")
 
-	// TODO: Continue from here
+	// **********
+	// ****  ****
+	// ***    ***
+	// **      **
+	// *        *
+	// *        *
+	// **      **
+	// ***    ***
+	// ****  ****
+	// **********
+	for i = 1; i <= n; i++ {
+		for j = n; j > 0; j-- {
+			if j >= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		for j = 1; j <= n; j++ {
+			if j >= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println("")
+	}
+	for i = 0; i < n; i++ {
+		for j = 0; j < n; j++ {
+			if j <= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+
+		for j = n - 1; j >= 0; j-- {
+			if j <= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println("")
+	}
+	fmt.Println("\n------------")
+
+	// *        *
+	// **      **
+	// ***    ***
+	// ****  ****
+	// **********
+	// ****  ****
+	// ***    ***
+	// **      **
+	// *        *
+	for i = 1; i <= n; i++ {
+		for j = 1; j <= n; j++ {
+			if j <= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		for j = n; j > 0; j-- {
+			if j <= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println("")
+	}
+	for i = 1; i < n; i++ {
+		for j = n - 1; j >= 0; j-- {
+			if j >= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		for j = 0; j < n; j++ {
+			if j >= i {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println("")
+	}
+	fmt.Println("\n------------")
+
+	// *****
+	// *   *
+	// *   *
+	// *   *
+	// *****
+	for i = 0; i < n; i++ {
+		for j = 0; j < n; j++ {
+			if i == 0 || j == 0 || j == n-1 || i == n-1 {
+				fmt.Print("*")
+			} else {
+				fmt.Print(" ")
+			}
+		}
+		fmt.Println("")
+	}
+	fmt.Println("\n------------")
+
+	// TODO From here
+	// front := 0
+	// back := n - 1
+	// count = n
+	// for i = 0; i < n; i++ {
+	// 	for j = 0; j < n; j++ {
+	// 		if i == front || j == front || i == back || j == back {
+	// 			fmt.Print(count)
+	// 		}
+	// 	}
+	// 	count--
+	// 	fmt.Println("")
+	// }
+	// fmt.Println("\n------------")
 }
