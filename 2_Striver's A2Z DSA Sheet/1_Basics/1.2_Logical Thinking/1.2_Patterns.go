@@ -458,18 +458,37 @@ func main() {
 	}
 	fmt.Println("\n------------")
 
-	// TODO From here
-	// front := 0
-	// back := n - 1
-	// count = n
-	// for i = 0; i < n; i++ {
-	// 	for j = 0; j < n; j++ {
-	// 		if i == front || j == front || i == back || j == back {
-	// 			fmt.Print(count)
-	// 		}
-	// 	}
-	// 	count--
-	// 	fmt.Println("")
-	// }
-	// fmt.Println("\n------------")
+	// Inner Reducing Pattern
+	// [4 4 4 4 4 4 4]
+	// [4 3 3 3 3 3 4]
+	// [4 3 2 2 2 3 4]
+	// [4 3 2 1 2 3 4]
+	// [4 3 2 2 2 3 4]
+	// [4 3 3 3 3 3 4]
+	// [4 4 4 4 4 4 4]
+	size := (2 * n) - 1
+	front := 0
+	back := size - 1
+	count = n
+	// Create array with 0's inplace
+	arr := make([][]int, size)
+	for i = 0; i < size; i++ {
+		arr[i] = make([]int, size)
+	}
+	// Populate values
+	for count > 0 {
+		for i = front; i <= back; i++ {
+			for j = front; j <= back; j++ {
+				arr[i][j] = count
+			}
+		}
+		count--
+		front++
+		back--
+	}
+	// Print Array
+	for i = 0; i < size; i++ {
+		fmt.Println(arr[i])
+	}
+	fmt.Println("\n------------")
 }
