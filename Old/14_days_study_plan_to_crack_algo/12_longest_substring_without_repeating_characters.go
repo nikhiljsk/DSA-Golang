@@ -29,7 +29,7 @@ Constraints:
 s consists of English letters, digits, symbols and spaces.
 */
 
-func isValid(seen map[byte]bool, r int, s string) bool {
+func isNotSeen(seen map[byte]bool, r int, s string) bool {
 	if _, ok := seen[s[r]]; ok {
 		return false
 	}
@@ -42,12 +42,12 @@ func lengthOfLongestSubstring(s string) int {
 	seen := make(map[byte]bool, len(s))
 
 	for r < len(s) {
-		if isValid(seen, r, s) {
+		if isNotSeen(seen, r, s) {
 			seen[s[r]] = true
 			r++
 			temp++
 		} else {
-			for !isValid(seen, r, s) {
+			for !isNotSeen(seen, r, s) {
 				delete(seen, s[l])
 				l++
 				temp--
